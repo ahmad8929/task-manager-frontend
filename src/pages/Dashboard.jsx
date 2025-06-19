@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/tasks", {
+      const res = await axios.get("https://task-manager-backend-sdu9.onrender.com/api/tasks", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(res.data);
@@ -29,7 +29,7 @@ const Dashboard = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/tasks", form, {
+      await axios.post("https://task-manager-backend-sdu9.onrender.com/api/tasks", form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setForm({ title: "", description: "" });
@@ -47,7 +47,7 @@ const Dashboard = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/tasks/${editingId}`, form, {
+      await axios.put(`https://task-manager-backend-sdu9.onrender.com/api/tasks/${editingId}`, form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setForm({ title: "", description: "" });
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   const toggleTask = async (id, completed) => {
     try {
-      await axios.put(`http://localhost:5000/api/tasks/${id}`, { completed: !completed }, {
+      await axios.put(`https://task-manager-backend-sdu9.onrender.com/api/tasks/${id}`, { completed: !completed }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTasks();
@@ -82,7 +82,7 @@ const Dashboard = () => {
   const deleteTask = async (id) => {
     // if (window.confirm("Are you sure you want to delete this task?")) {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+      await axios.delete(`https://task-manager-backend-sdu9.onrender.com/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTasks();

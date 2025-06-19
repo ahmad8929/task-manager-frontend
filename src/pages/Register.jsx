@@ -53,7 +53,7 @@ const Register = () => {
     setIsSubmitting(true);
     
     try {
-      await axios.post("http://localhost:5000/api/register", {
+      await axios.post("https://task-manager-backend-sdu9.onrender.com/api/register", {
         name: form.fullName,
         email: form.email,
         password: form.password
